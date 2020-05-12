@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: sentinel
+    role: service
+  name: redis-sentinel
+spec:
+  type: NodePort
+  ports:
+    - port: 26379
+      nodePort: 31926 #31926,31927 {MUI},31928,31929{PLT},31930,31931{GR},31932,31933{wallet},31934,3135
+  selector:
+    redis-sentinel: "true"
